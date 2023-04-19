@@ -1,0 +1,603 @@
+:root {
+    --bg-details: #0000001e;
+    --color-details: #000;
+    --box-shadow: 2px 5px 10px #000;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ion-icon {
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+summary {
+    list-style-type: none;
+    margin: 10px 0;
+    padding: 2px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+details:hover > summary {
+    color: var(--color-details);
+    background-color: var(--bg-details);
+    cursor: pointer;
+}
+
+input {
+    border: solid 1px;
+    font-size: 1rem;
+    padding-left: 3px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+input:focus {
+    outline: none;
+}
+
+body {
+    position: relative;
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    padding: 10px;
+}
+
+section.form-add-bill {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #0202025d;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+}
+
+#msgError {
+    background-color: #ff0000;
+    font-size: 1.2rem;
+    display: none;
+    padding: 5px;
+    position: fixed;
+    inset: 0;
+    margin: 100px auto;
+    width: 400px;
+    height: 30px;
+    z-index: 3;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+section.form-add-bill div.box-form {
+    border: solid 2px;
+    padding: 20px;
+    width: 350px;
+    height: 300px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(160deg, #000, #ffffff, #000000);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+section.form-add-bill div.box-form div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+section.form-add-bill div.box-form div label {
+    color: #87cefa;
+    background-color: #000;
+    padding: 2px 10px;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    -ms-border-radius: 10px 10px 0 0;
+    -o-border-radius: 10px 10px 0 0;
+}
+
+section.form-add-bill div.box-form div input {
+    width: 90%;
+    height: 25px;
+    font-size: 1rem;
+} 
+
+section.form-add-bill div.box-form div input[name=nome] {
+    text-transform: capitalize;
+} 
+
+section.form-add-bill div.box-form div:has(button#btn-add-new-bill) {
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+section.form-add-bill div.box-form div:has(input[name=parcel]) div {
+    flex-direction: row;
+    justify-content: center;
+    margin: 2px;
+}
+
+section.form-add-bill div.box-form div:has(input[name=parcel]) div button:hover {
+    background: linear-gradient(to right, #6b6868, #21f321);
+}
+
+section.form-add-bill div.box-form div:has(input[name=parcel]) input{
+    width: 30px;
+    text-align: center;
+    padding: 0;
+    margin: 0 3px;
+}
+
+section.form-add-bill div.box-form div:has(input[type=color]) {
+    flex-direction: row;
+    justify-content: center;
+}
+
+section.form-add-bill div.box-form div:has(input[type=color]) input {
+    width: 30px;
+    padding: 0;
+}
+
+section.form-add-bill div.box-form div:has(input[type=color]) label {
+    margin-right: 3px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+section.form-add-bill div.box-form div button {
+    font-size: 1rem;
+    padding: 2px 10px;
+    border: none;
+    background: linear-gradient(to right, #000, #02f8ec56);
+    color: #fff;
+    transition: .2s;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+}
+
+section.form-add-bill div.box-form div button#btn-add-new-bill:hover {
+    outline: solid 1px #21f321;
+    outline-offset: 5px;
+    color: #21f321;
+    background-color: #0000005e;
+}
+
+section.form-add-bill div.box-form div button#btn-close-new-bill:hover {
+    outline: solid 1px #f32121;
+    outline-offset: 5px;
+    color: #f32121;
+    background-color: #0000005e;
+}
+
+section.form-add-bill div.box-form div button#btn-edit-new-bill:hover {
+    outline: solid 1px #507aee;
+    outline-offset: 5px;
+    color: #507aee;
+    background-color: #0000005e;
+}
+
+header {
+    border: solid 2px;
+    padding: 10px;
+    width: 100%;
+    height: 130px;
+    background: linear-gradient(180deg, #000000d0 60%, #02f8ec6c);
+    display: grid;
+    place-items: center;
+    position: relative;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+header div.change-mode {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 60px;
+    background: #ffff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+header div.change-mode ion-icon:hover {
+    color: #21f321;
+}
+
+header div.header-container {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header div.header-container h1 {
+    text-shadow: 2px 2px 15px #01fff2;
+    color: #4af1e9b4;
+}
+
+header div.header-container h1 span {
+    color: #f57105;
+    text-shadow: none;
+}
+
+header div.header-container div.box-search {
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 0 10px #04dfd4fd);
+    -webkit-filter: drop-shadow(0 0 10px #04dfd4fd);
+}
+
+header div.header-container div.box-search input {
+    width: 220px;
+    height: 25px;
+    border: solid 1px #6EADAA;
+    border-right: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+header div.header-container div.box-search ion-icon {
+    border: solid 1px #6EADAA;
+    height: 23px;
+    width: 30px;
+    border-left: none;
+    background-color: #6EADAA;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+
+header div.header-container button#btn-add {
+    font-size: 1.2rem;
+    width: 250px;
+    padding: 5px 10px;
+    border: none;
+    position: relative;
+    text-align: left;
+    background: linear-gradient(to left, #02f8ec6c, #ffffffe7);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+} 
+
+header div.header-container button#btn-add ion-icon {
+    position: absolute;
+    right: 30px;
+    font-size: 3rem;
+    top: -13px;
+    background: linear-gradient(to bottom, #000000f1 65%, #557573);
+    padding: 5px;
+    z-index: 2;
+    color: #5dc0b9;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+header div.header-container button#btn-add:hover {
+    background: linear-gradient(to left, #21f321, #fff);
+}
+
+header div.header-container button#btn-add:hover ion-icon {
+    color: #21f321;
+}
+
+div.msg-content {
+    border: solid 1px #000;
+    margin: 5px 0;
+    padding: 5px;
+    display: none;
+    color: #21f321;
+    background: linear-gradient(180deg, #000000d0 50%, #02f8ec6c);
+    border-radius: 5px;
+    text-align: center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+main {
+    margin-top: 10px;
+}
+
+main div.bill-container {
+    border: solid 1px;
+    padding: 10px;
+    height: 70vh;
+    overflow-y: auto;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+main div.bill-container div.title-bill {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main div.bill-container div.title-bill button {
+    padding: 3px 5px;
+    border: solid 1px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+main div.bill-container div.title-bill button[title=Deletar] {
+    background-color: #fa3636;
+    margin: 0 10px;
+}
+
+main div.bill-container div.title-bill button[title=Editar] {
+    background-color: #21f321;
+} 
+
+main div.bill-container div.title-bill button:hover {
+    transform: translateY(-5px);
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
+}
+
+main div.bill-container div.title-bill button ion-icon {
+    font-size: 1.3rem;
+}
+
+main div.bill-container div.bill-content {
+    border: solid 2px;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+main div.bill-container div.bill-content div {
+    display: flex;
+}
+
+main div.bill-container div.bill-content h3 {
+    text-transform: capitalize;
+}
+
+main div.bill-container div.bill-content div.bill-table ul {
+    width: 100%;
+}
+
+main div.bill-container div.bill-content div.bill-table ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 2px;
+}
+
+main div.bill-container div.bill-content div.bill-table ul li:nth-child(odd) {
+    background-color: #d3d3d3cb;
+} 
+
+main div.bill-container div.bill-content div.bill-table ul li:nth-child(even) {
+    background-color: rgba(71, 71, 71, 0.397);
+} 
+
+main div.bill-container div.bill-content div.bill-table ul li span ion-icon {
+    font-size: 1.5rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+main div.bill-container div.bill-content div.bill-table ul li span:hover ion-icon{
+    color: #21f321;
+}
+
+section:has(div.form-import-csv) {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #00000070;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+div.form-import-csv {
+    background: linear-gradient(160deg, #000, #ffffff, #000000);
+    border-radius: 5px;
+    height: 200px;
+    border: solid 1px;
+    padding: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+div.form-import-csv, div.form-import-csv div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+div.form-import-csv div label {
+    background: #000;
+    color: #01fff2;
+    font-weight: bold;
+    padding: 2px 10px;
+    border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    -ms-border-radius: 10px 10px 0 0;
+    -o-border-radius: 10px 10px 0 0;
+}
+
+div.form-import-csv div input {
+    background-color: #01fff2;
+    cursor: pointer;
+}
+
+div.form-import-csv button {
+    font-size: 1.2rem;
+    padding: 2px 10px;
+    background: linear-gradient(to right, #000, #02f8ec56);
+    color: #fff;
+    border: solid 1px #000;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    transition: .4s;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -ms-transition: .4s;
+    -o-transition: .4s;
+}
+
+div.form-import-csv div:has(button#btn-send-csv) {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 60%;
+}
+
+div.form-import-csv button#btn-send-csv:hover {
+    outline: solid 1px #21f321;
+    outline-offset: 5px;
+    color: #21f321;
+}
+
+div.form-import-csv button#btn-close-csv:hover {
+    outline: solid 1px #ff0000;
+    outline-offset: 5px;
+    color: #f32121;
+}
+
+footer a, footer button {
+    margin: 5px;
+    border: solid 1px #000;
+    float: right;
+    font-size: 1rem;
+    box-shadow: var(--box-shadow);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+footer a#export-csv {
+    background-color: #ff0000;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 3px 5px;
+    color: #000;
+    text-decoration: none;
+}
+
+
+footer button#import-csv {
+    background-color: #8BEAE5;
+    font-weight: bold;
+    padding: 3px 5px;
+    cursor: pointer;
+}
+
+footer a#export-csv:hover, footer button#import-csv:hover {
+    box-shadow: none;
+    transform: translateY(2px);
+    -webkit-transform: translateY(2px);
+    -moz-transform: translateY(2px);
+    -ms-transform: translateY(2px);
+    -o-transform: translateY(2px);
+} 
+
+div.list-empty {
+    text-align: center;
+}
+
+div.list-empty img {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.checked {
+    color: #21f321;
+    background-color: #000;
+}
+
+.bill-color {
+    width: 15px;
+    margin-right: 3px;
+    background-color: #000;
+}
+

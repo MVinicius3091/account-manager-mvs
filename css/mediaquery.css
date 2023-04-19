@@ -1,0 +1,52 @@
+
+@media screen and (max-width: 800px){
+    body {
+        padding: 5px;
+    }
+
+    header {
+        width: 100% ;
+        height: 160px;
+    }
+
+    header div.header-container h1 {
+        font-size: 1.2rem;
+        text-shadow: none;
+    }
+
+    header div.header-container {
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    header div.header-container button#btn-add ion-icon {
+        background: linear-gradient(to bottom, #000000f1 10%, #59CAC5);
+
+    }
+
+    main {
+        margin-top: 10px;
+    }
+    
+    main div.title-bill button ion-icon {
+        font-size: 1.2rem;
+    }
+
+    main div.title-bill h3 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    div.list-empty {
+        width: 100%;
+    }
+
+    div.list-empty img {
+        width: 90%;
+    }
+
+    footer input {
+        width: 200px;
+    }
+}

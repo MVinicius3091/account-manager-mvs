@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Gerênciador de contas</title>
+
+    <link rel="stylesheet" href="./css/styles.css" type="text/css">
+    <link rel="stylesheet" href="./css/mediaquery.css" type="text/css">
+    
+    <!-- url icon -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/6405/6405024.png" type="image/gif" sizes="16x16">
+
+    <!-- icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="change-mode">
+            <ion-icon name="moon-outline"></ion-icon>
+            <ion-icon name="sunny-outline"></ion-icon>
+        </div>
+        <div class="header-container">
+            <h1>MVS<span> 	&radic; Gerênciador</span></h1>
+
+            <div class="box-search">
+                <input type="text" name="search" id="search" placeholder="Buscar">
+                <ion-icon name="search"></ion-icon>
+            </div>
+
+            <button id="btn-add">Adicionar novo <ion-icon name="add-circle"></ion-icon></button>
+        </div>
+    </header>
+
+    <div class="msg-content">
+        <h3 id="msgSuccess"></h3>
+    </div> 
+
+    <span id="msgError"></span>
+    
+    <section class="form-add-bill">
+        <div class="box-form">
+            <input type="hidden" name="date" id="date">
+            <div>
+                <label for="nome">Nome da Conta</label>
+                <input type="text" name="nome" id="nome">
+            </div>
+            <div>
+                <label for="value">Valor</label>
+                <input type="text" name="value" id="value">
+            </div>
+            <div>
+                <label for="parcel">Parcelas</label>
+                <div>
+                    <button id="add-parcel"><ion-icon name="add-outline"></ion-icon></button>
+                    <input type="text" name="parcel" id="parcel" value="1" readonly="readonly">
+                    <button id="rm-parcel"><ion-icon name="remove-outline"></ion-icon></button>
+                </div>
+            </div>
+            <div>
+                <label for="color">Cor</label>
+                <input type="color" name="color" id="color">
+            </div>
+            <div>
+                <button id="btn-edit-new-bill">Editar</button>                
+                <button id="btn-add-new-bill">Adicionar</button>                
+                <button id="btn-close-new-bill">Fechar</button>                
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <form id="form-csv" enctype="multipart/form-data">
+            <div class="form-import-csv">
+                <div>
+                    <label>Importa CSV</label> 
+                    <input type="file" id="import-csv" />
+                </div>
+                
+                <div>
+                    <button id="btn-send-csv">Enviar</button>
+                    <button id="btn-close-csv">Fechar</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <main>
+        <section>
+            <div class="bill-container">
+                <!-- Contas -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a id="export-csv">Exportar CSV</a>
+        <button id="import-csv">Importar CSV</button>
+    </footer>
+</body>
+</html>
